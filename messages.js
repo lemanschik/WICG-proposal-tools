@@ -44,7 +44,7 @@ export const example = `
 
 Example:
 
-  wicg init "My Awesome API"
+  wicg init "My Awesome Proposal or Idea"
 
 More info at: ${b("https://wicg.io")} | bugs: ${b("https://github.com/WICG/starter-kit")}
 `;
