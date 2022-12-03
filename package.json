@@ -1,32 +1,29 @@
 {
   "name": "wicg",
   "version": "1.2.7",
-  "description": "Tools to get you started with the WICG",
+  "description": "Tools to get you started with the WICG/WInterCG",
+  "type": "module",
   "scripts": {
     "release": "standard-version",
     "semantic-release": "semantic-release"
   },
   "bin": {
-    "wicg": "index.mjs"
+    "wicg": "wicg-cli.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/WICG/starter-kit.git"
   },
   "keywords": [
+    "WInterCG",
     "WICG",
     "W3C",
     "standards"
   ],
   "author": "Marcos Caceres",
-  "license": "CC0-1.0",
+  "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/WICG/starter-kit/issues"
-  },
-  "preferGlobal": true,
-  "engineStrict": true,
-  "engines": {
-    "node": ">=16.16.0"
   },
   "homepage": "https://github.com/WICG/starter-kit#readme",
   "dependencies": {
