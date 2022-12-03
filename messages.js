@@ -19,7 +19,7 @@ If you are new to spec writing or the WICG, we strongly encourage you to read:
   ⭐️ Writing Promise-Using Specs:
     ${b("http://www.w3.org/2001/tag/doc/promises-guide")}
 
-Good luck! 🐼
+Prost, Be Salamati, Nastrovje, Good luck, Perhajr, Masel tov! 🐼
 `;
 
 const wicgURL = blueUnderlineBold("https//wicg.io");
