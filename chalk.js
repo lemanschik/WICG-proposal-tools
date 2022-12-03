@@ -6,3 +6,4 @@ export const m = chalk.default.magenta.bind(chalk);
 export const r = chalk.default.red.bind(chalk);
 export const y = chalk.default.yellow.bind(chalk);
 export const heading = (text) => chalk.default.underline(`\n${text.toUpperCase()}\n`);
+export const blueBoldUnderline = (text) => chalk.default.blue.underline.bold(text)
