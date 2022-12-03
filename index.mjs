@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { promises as fs } from "fs";
-import { git } from "./git.mjs";
+import { git, getRepoName } from "./git.mjs";
 import { finished, logo, example } from "./messages.mjs";
 import path from "path";
 import { program } from "commander";
@@ -123,7 +123,7 @@ async function collectProjectData(name = "") {
   let repo = "";
   let needsGitInit = true;
   try {
-    repo = await git.getRepoName();
+    repo = await getRepoName();
     needsGitInit = false;
   } catch (err) {
     const response = await Prompts.askRepoName();
