@@ -1,6 +1,6 @@
 {
   "name": "wicg",
-  "version": "1.2.7",
+  "version": "1.3.0-pre.0",
   "description": "Tools to get you started with the WICG/WInterCG",
   "type": "module",
   "scripts": {
@@ -8,7 +8,7 @@
     "semantic-release": "semantic-release"
   },
   "bin": {
-    "wicg": "wicg-cli.js"
+    "wicg": "wicg-bin.js"
   },
   "repository": {
     "type": "git",
