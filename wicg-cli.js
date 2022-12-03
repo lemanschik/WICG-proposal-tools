@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { promises as fs } from "node:fs";
 import { git, getRepoName } from "./git.js";
 import { finished, logo, example } from "./messages.mjs";
