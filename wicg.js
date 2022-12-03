@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { promises as fs } from "fs";
-import { git, getRepoName } from "./git.mjs";
+import { git, getRepoName } from "./git.js";
 import { finished, logo, example } from "./messages.mjs";
 import path from "path";
 import { program } from "commander";
