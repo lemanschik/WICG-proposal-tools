@@ -1,7 +1,6 @@
 const chalk = await import("chalk");
-const { b, g, gr, r, y, m } = await import("./theme.mjs");
+const { b, g, gr, r, y, m } = await import("./theme.js");
 
-// Shown if everything is successful
 export const finished = `
 ${chalk.default.underline("NEXT STEPS")}
 
