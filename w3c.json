@@ -1,5 +1,9 @@
- {
-    "group":      [80485]
-,   "contacts":   ["marcoscaceres"]
-,   "repo-type":  "tool"
+{
+  "group": [ 
+   80485
+  ],
+  "contacts": [
+   "marcoscaceres"
+  ],
+  "repo-type": "tool"
 }
