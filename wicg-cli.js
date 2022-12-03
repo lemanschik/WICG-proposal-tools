@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-import { promises as fs } from "fs";
+import { promises as fs } from "node:fs";
 import { git, getRepoName } from "./git.js";
 import { finished, logo, example } from "./messages.mjs";
-import path from "path";
+import path from "node:path";
 import { program } from "commander";
-import { Prompts } from "./prompts.mjs";
+import { Prompts } from "./prompts.js";
 import pkg from "./package.json" assert { type: "json" };
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "node:url";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const version = pkg.version;
@@ -120,43 +121,23 @@ function postInitialization() {
 
 async function collectProjectData(name = "") {
   console.info(heading("Let's get you set up! (About this WICG project)"));
-  let repo = "";
-  let needsGitInit = true;
-  try {
-    repo = await getRepoName();
-    needsGitInit = false;
-  } catch (err) {
-    const response = await Prompts.askRepoName();
-    repo = response.trim();
-  }
-  // Let's get the name of the project
-  if (!name) {
-    name = await Prompts.askProjectName(repo);
-  }
-  // Derive the user's name from git config
+  let needsGitInit = false;
+  const repo = await getRepoName()
+    .catch((_err) => (needsGitInit = true) && (await Prompts.askRepoName()).trim());
+  name = name || await Prompts.askProjectName(repo);
+  
   const userName = await Prompts.askUserName();
   const userEmail = await Prompts.askEmail();
-  // Get the company from the email
+  
   const [, affiliationHint] = /(?:@)([\w|-]+)/.exec(userEmail);
   const affiliation = await Prompts.askAffiliation(affiliationHint);
-  let affiliationURL = "";
-  if (affiliation) {
-    affiliationURL = await Prompts.askAffiliationURL(userEmail);
-  }
+  const affiliationURL = (affiliation) ? await Prompts.askAffiliationURL(userEmail) : '';
+  
   const mainBranch = await Prompts.askWhichGitBranch();
   const preprocessor = await Prompts.askWhichPreProcessor();
-  return {
-    affiliation,
-    affiliationURL,
-    mainBranch,
-    name,
-    needsGitInit,
-    preprocessor,
-    repo,
-    srcfile: preprocessor === "bikeshed" ? "index.bs" : "index.html",
-    userEmail,
-    userName,
-  };
+  const srcfile = preprocessor === "bikeshed" ? "index.bs" : "index.html",
+  
+  return { repo, name, userName, userEmail, affiliation, affiliationURL, mainBranch, preprocessor, needsGitInit, srcfile, };
 }
 
 program
