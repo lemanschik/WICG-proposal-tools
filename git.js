@@ -21,5 +21,5 @@ export const moduleExports = {
   getConfigData: async (configItem) => await git(configItem).catch((_)=>""),
   getBranches, hasBranch, switchBranch: async (branch) => (await hasBranch(branch)) 
     ? await git(`checkout -b ${branch}`) : await git(`checkout ${branch}`),
-  getRepoName: async () => path.basename((await git("rev-parse --show-toplevel"))).trim()
+  getRepoName: async () => path.basename((await git("rev-parse --show-toplevel"))).trim(),
 };
