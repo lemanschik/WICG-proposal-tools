@@ -1,8 +1,7 @@
-const chalk = await import("chalk");
-const { b, g, gr, r, y, m } = await import("./theme.js");
+const { b, g, gr, r, y, m, underline, blueUnderlineBold } = await import("./chalk.js");
 
 export const finished = `
-${chalk.default.underline("NEXT STEPS")}
+${underline("NEXT STEPS")}
 
 Congrats! You are ready to start. Please push everything up to GitHub
 when you are ready.
@@ -23,8 +22,8 @@ If you are new to spec writing or the WICG, we strongly encourage you to read:
 Good luck! 🐼
 `;
 
-const wicgURL = chalk.default.blue.underline.bold("https//wicg.io");
-const wicgTitle = chalk.default.yellow("Web Incubator Community Group");
+const wicgURL = blueUnderlineBold("https//wicg.io");
+const wicgTitle = y("Web Incubator Community Group");
 const W3C = `${gr(">--=")} ${b("W")} * ${gr("3")} * ${b("C")} ${gr("=--<")}`;
 export const logo = `
     ${y(" __      __")}${r(".___")}${m("_________")}${g("   ________")}        ${W3C}
